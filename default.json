@@ -5,5 +5,8 @@
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
-  ]
+  ],
+  "nix": {
+    "enabled": true
+  }
 }
