@@ -6,6 +6,9 @@
       "automerge": true
     }
   ],
+  "kubernetes": {
+    "fileMatch": ["^kubernetes/.*\\.yaml$"]
+  },
   "nix": {
     "enabled": true
   }
