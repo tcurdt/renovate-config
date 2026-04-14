@@ -1,15 +1,20 @@
 {
   "extends": ["config:base", ":disableDependencyDashboard"],
+  "addLabels": ["dependencies"],
+  "nix": { "enabled": true },
+  "npm": { "enabled": true },
+  "pnpm": { "enabled": true },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 4am"]
+  },
+  "kubernetes": {
+    "fileMatch": ["^kubernetes/.*\\.ya?ml$"]
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
-  ],
-  "kubernetes": {
-    "fileMatch": ["^kubernetes/.*\\.yaml$"]
-  },
-  "nix": {
-    "enabled": true
-  }
+  ]
 }
