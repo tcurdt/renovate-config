@@ -1,20 +1,30 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":disableDependencyDashboard"],
   "addLabels": ["dependencies"],
+  "timezone": "UTC",
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "nix": { "enabled": true },
   "npm": { "enabled": true },
-  "pnpm": { "enabled": true },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["* 4 * * 6"]
+    "schedule": ["* * * * 0"],
+    "automerge": true,
+    "automergeType": "branch"
   },
   "kubernetes": {
-    "fileMatch": ["^kubernetes/.*\\.ya?ml$"]
+    "managerFilePatterns": ["/^kubernetes/.*\\.ya?ml$/"]
   },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "schedule": ["* * * * 6"]
     }
   ]
 }
