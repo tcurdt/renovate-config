@@ -9,7 +9,7 @@
   "npm": { "enabled": true },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["* * * * 0"],
+    "schedule": ["* 0-4 * * 0"],
     "automerge": true,
     "automergeType": "branch"
   },
@@ -24,7 +24,7 @@
     },
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["* * * * 6"]
+      "schedule": ["* 0-4 * * 6"]
     }
   ]
 }
